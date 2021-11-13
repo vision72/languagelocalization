@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css';
-import Submit from './Submit';
+// import { useTranslation } from 'react-i18next';
+// import Submit from './Submit';
 
 class Form extends Component {
 	constructor(props) {
@@ -31,18 +32,19 @@ class Form extends Component {
 		});
 	};
 
-	handleSubmit = (event) => {
-		event.preventDefault();
-		// alert(`Full Name: ${this.state.firstname} ${this.state.middlename} ${this.state.lastname}`);
+	handleSubmit = () => {
+		alert(`Full Name: ${this.state.firstname} ${this.state.middlename} ${this.state.lastname}`);
 	};
 
 	render() {
+		const { t, i18n } = this.props;
+
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<div className="body">
 					<h1 className="header">Language</h1>
 					<div className="input">
-						<label>First Name</label>
+						<label>{(t, 'input')}</label>
 						<input type="text" value={this.state.firstname} onChange={this.handleFirstNameChange} />
 					</div>
 					<div className="input">
